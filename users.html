@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h2>My Website</h2>
+<div>
+
+    <a href="home.html">Home</a>
+
+    <a href="profile.html">Profile</a>
+
+    <a href="users.html">Users</a>
+
+    <a href="about.html">About</a>
+
+    <a href="contact.html">Contact</a>
+
+    <button onclick="toggleMode()" id="modeBtn">
+        🌙 Dark
+    </button>
+
+    <button onclick="logout()">
+        Logout
+    </button>
+
+</div>
+</nav>
+
+<div class="table-container">
+
+    <h1>Users Management</h1>
+
+<button class="add-btn" onclick="openAddModal()">
+    + Add User
+</button>
+
+    <div id="editModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Edit User</h2>
+
+        <input type="text" id="editName" placeholder="Name">
+
+        <input type="email" id="editEmail" placeholder="Email">
+
+        <input type="text" id="editRole" placeholder="Role">
+
+        <select id="editStatus">
+
+    <option>Active</option>
+
+    <option>Inactive</option>
+
+</select>
+
+        <button onclick="saveUser()">Save Changes</button>
+
+        <button onclick="closeModal()">Cancel</button>
+
+    </div>
+
+</div>
+
+
+<div id="addModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Add User</h2>
+
+        <input type="text" id="addName" placeholder="Name">
+
+        <input type="email" id="addEmail" placeholder="Email">
+
+        <input type="text" id="addRole" placeholder="Role">
+
+        <select id="addStatus">
+
+            <option>Active</option>
+
+            <option>Inactive</option>
+
+        </select>
+
+        <button onclick="addUser()">
+            Add User
+        </button>
+
+        <button onclick="closeAddModal()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+    <table class="user-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+let users =
+JSON.parse(localStorage.getItem("users"));
+
+if(!users){
+
+    users = [
+
+    {
+        id:1,
+        name:"Michael",
+        email:"michael@gmail.com",
+        role:"Admin",
+        status:"Active"
+    },
+
+    {
+        id:2,
+        name:"John",
+        email:"john@gmail.com",
+        role:"User",
+        status:"Active"
+    },
+
+    {
+        id:3,
+        name:"David",
+        email:"david@gmail.com",
+        role:"Manager",
+        status:"Inactive"
+    },
+
+    {
+        id:4,
+        name:"Sarah",
+        email:"sarah@gmail.com",
+        role:"User",
+        status:"Active"
+    }
+
+    ];
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+}
+let currentIndex = -1;
+
+function editUser(index){
+
+    currentIndex = index;
+
+    document.getElementById("editName").value =
+    users[index].name;
+
+    document.getElementById("editEmail").value =
+    users[index].email;
+
+    document.getElementById("editRole").value =
+    users[index].role;
+
+    document.getElementById("editStatus").value =
+    users[index].status;
+
+    document.getElementById("editModal").style.display =
+    "flex";
+
+}
+
+function viewUser(index){
+
+    localStorage.setItem(
+        "selectedUser",
+        JSON.stringify(users[index])
+    );
+
+    window.location.href = "user-details.html";
+
+}
+
+function deleteUser(index){
+
+    users.splice(index,1);
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+    location.reload();
+
+}
+
+function saveUser(){
+
+    users[currentIndex].name =
+    document.getElementById("editName").value;
+
+    users[currentIndex].email =
+    document.getElementById("editEmail").value;
+
+    users[currentIndex].role =
+    document.getElementById("editRole").value;
+
+    users[currentIndex].status =
+document.getElementById("editStatus").value;
+
+    localStorage.setItem(
+    "users",
+    JSON.stringify(users)
+);
+
+    document.getElementById("editModal").style.display =
+    "none";
+
+    tableBody.innerHTML = "";
+
+    users.forEach((user,index) => {
+
+        tableBody.innerHTML += `
+
+       <tr onclick="viewUser(${index})" style="cursor:pointer;">
+
+
+            <td>${user.id}</td>
+
+            <td>${user.name}</td>
+
+            <td>${user.email}</td>
+
+            <td>${user.role}</td>
+
+            <td>
+                <span class="status ${user.status}">
+                    ${user.status}
+                </span>
+            </td>
+
+            <td>
+                <button onclick="editUser(${index})">
+                    Edit
+                </button>
+
+                <button onclick="deleteUser(${index})">
+                    Delete
+                </button>
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+function closeModal(){
+
+    document.getElementById("editModal").style.display =
+    "none";
+
+}
+
+function openAddModal(){
+
+    document.getElementById("addModal").style.display =
+    "flex";
+
+}
+
+function closeAddModal(){
+
+    document.getElementById("addModal").style.display =
+    "none";
+
+}
+
+function addUser(){
+
+    let user = {
+
+        id: users.length + 1,
+
+        name: document.getElementById("addName").value,
+
+        email: document.getElementById("addEmail").value,
+
+        role: document.getElementById("addRole").value,
+
+        status: document.getElementById("addStatus").value
+
+    };
+
+    users.push(user);
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+    location.reload();
+
+}
+
+let tableBody =
+document.getElementById("tableBody");
+
+users.forEach((user,index) => {
+
+tableBody.innerHTML += `
+
+<tr onclick="viewUser(${index})" style="cursor:pointer;">
+
+
+    <td>${user.id}</td>
+
+    <td>${user.name}</td>
+
+    <td>${user.email}</td>
+
+    <td>${user.role}</td>
+
+    <td>
+        <span class="status ${user.status}">
+            ${user.status}
+        </span>
+    </td>
+
+    <td>
+
+    
+
+    <button class="edit-btn"
+onclick="event.stopPropagation(); editUser(${index})">
+    Edit
+</button>
+
+    <button class="delete-btn"
+onclick="event.stopPropagation(); deleteUser(${index})">
+    Delete
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+</script>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

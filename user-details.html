@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Details</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>User Management</h2>
+
+        <div>
+
+            <a href="home.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="users.html">Users</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+
+            <button onclick="toggleMode()" id="modeBtn">
+                🌙 Dark
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+    <div class="details-card">
+
+        <h1>User Details</h1>
+
+        <p><strong>ID :</strong> <span id="id"></span></p>
+
+        <p><strong>Name :</strong> <span id="name"></span></p>
+
+        <p><strong>Email :</strong> <span id="email"></span></p>
+
+        <p><strong>Role :</strong> <span id="role"></span></p>
+
+        <p><strong>Status :</strong> <span id="status"></span></p>
+
+        <button onclick="window.location.href='users.html'">
+            ← Back to Users
+        </button>
+
+    </div>
+
+    <script>
+
+       let user = JSON.parse(localStorage.getItem("selectedUser"));
+
+
+        console.log(user);
+
+        if(user){
+
+            document.getElementById("id").innerHTML = user.id;
+
+            document.getElementById("name").innerHTML = user.name;
+
+            document.getElementById("email").innerHTML = user.email;
+
+            document.getElementById("role").innerHTML = user.role;
+
+            document.getElementById("status").innerHTML = user.status;
+
+        }
+        else{
+
+            alert("No user selected!");
+
+            window.location.href = "users.html";
+
+        }
+
+    </script>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>

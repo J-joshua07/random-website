@@ -1,0 +1,1214 @@
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+
+}
+
+
+
+body{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+
+    color:white;
+
+}
+
+/* Only Login & Signup */
+
+.auth-page{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+.container{
+
+width:380px;
+
+}
+
+
+
+.box{
+
+background:rgba(255,255,255,0.15);
+
+backdrop-filter:blur(15px);
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 20px 40px #000;
+
+}
+
+
+
+h1{
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+
+
+input{
+
+width:100%;
+
+padding:13px;
+
+margin:10px 0;
+
+border:none;
+
+outline:none;
+
+border-radius:10px;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:13px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+a{
+
+color:#00ffd5;
+
+text-decoration:none;
+
+}
+
+
+
+p{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+}
+
+
+
+nav a{
+
+color:white;
+
+margin-left:20px;
+
+}
+
+
+
+.home{
+
+text-align:center;
+
+}
+
+
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:20px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+
+
+.cards div{
+
+background:rgba(255,255,255,0.2);
+
+padding:30px;
+
+border-radius:20px;
+
+}
+
+
+input[type="date"]{
+
+cursor:pointer;
+
+}
+
+nav button{
+
+width:auto;
+
+padding:8px 18px;
+
+margin-left:20px;
+
+background:white;
+
+}
+
+
+/* Mobile Responsive */
+
+@media screen and (max-width:600px){
+
+
+body{
+
+    min-height:100vh;
+    padding:20px;
+
+}
+
+
+.container{
+
+    width:100%;
+
+}
+
+
+
+.box{
+
+    width:100%;
+
+    padding:25px;
+
+}
+
+
+
+h1{
+
+    font-size:24px;
+
+}
+
+
+
+nav{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    height:80px;
+
+    padding:25px 50px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:1000;
+
+}
+
+
+
+nav div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.cards{
+
+    flex-direction:column;
+
+    width:100%;
+
+}
+
+
+
+.cards div{
+
+    width:100%;
+
+}
+
+
+
+button{
+
+    padding:14px;
+
+}
+
+
+}
+
+.dark{
+
+background:
+linear-gradient(135deg,#000,#111,#222);
+
+color:white;
+
+}
+
+
+
+.dark .box{
+
+background:rgba(255,255,255,0.08);
+
+}
+
+
+
+.dark input{
+
+background:#222;
+color:white;
+
+}
+
+
+.dark nav a{
+
+color:white;
+
+}
+
+
+#modeBtn{
+
+width:auto;
+
+padding:8px 15px;
+
+margin-left:20px;
+
+}
+
+/* ===== Better Animations ===== */
+
+
+/* Page smooth entrance */
+
+body{
+
+animation: pageLoad 0.7s ease;
+
+}
+
+
+@keyframes pageLoad{
+
+from{
+
+opacity:0;
+
+transform:scale(0.96);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+
+
+/* Glass card animation */
+
+.box{
+
+animation: cardPop 0.6s ease;
+
+transition:0.3s;
+
+}
+
+
+.box:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,0.6);
+
+}
+
+
+
+@keyframes cardPop{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+/* Button animation */
+
+button{
+
+transition:all 0.3s ease;
+
+}
+
+
+
+button:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+box-shadow:0 10px 20px rgba(0,0,0,0.4);
+
+}
+
+
+
+button:active{
+
+transform:scale(0.95);
+
+}
+
+
+
+
+
+/* Navbar animation */
+
+nav{
+
+animation: navSlide 0.8s ease;
+
+}
+
+
+
+@keyframes navSlide{
+
+from{
+
+opacity:0;
+
+transform:translateY(-30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+/* Cards animation */
+
+.cards div{
+
+animation: cardMove 0.8s ease;
+
+transition:0.3s;
+
+}
+
+
+
+.cards div:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+@keyframes cardMove{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+/* Link hover */
+
+nav a{
+
+transition:0.3s;
+
+}
+
+
+
+nav a:hover{
+
+color:#00ffd5;
+
+letter-spacing:1px;
+
+}
+
+/* Loading Animation */
+
+
+.loader{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+background:#050505;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+animation:hideLoader 0.5s ease 1.8s forwards;
+
+}
+
+
+
+.neon-loader{
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+
+.neon-loader span{
+
+width:25px;
+
+height:25px;
+
+background:#00ffd5;
+
+border-radius:50%;
+
+animation:pulse 1s infinite;
+
+box-shadow:
+0 0 20px #00ffd5,
+0 0 50px #00ffd5;
+
+}
+
+
+
+.neon-loader span:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+
+
+.neon-loader span:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+
+
+.loader h2{
+
+color:white;
+
+margin-top:25px;
+
+letter-spacing:5px;
+
+text-shadow:0 0 20px #00ffd5;
+
+}
+
+
+
+@keyframes pulse{
+
+
+0%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.5);
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+@keyframes hideLoader{
+
+to{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+}
+
+#toast{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#00c853;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+    z-index:9999;
+}
+
+#toast.show{
+    opacity:1;
+    transform:translateY(10px);
+}
+
+table{
+
+width:80%;
+
+margin:auto;
+
+border-collapse:collapse;
+
+background:transparent;
+
+color:inherit;
+
+}
+
+th,td{
+
+padding:12px;
+
+border:1px solid #ccc;
+
+text-align:center;
+
+}
+
+.user-table th{
+
+background:#00ffd5;
+
+color:black;
+
+}
+
+.table-container{
+    width:90%;
+    margin:120px auto 40px;
+}
+
+.user-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--table-bg);
+    color:var(--table-text);
+}
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.6);
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+.modal-content{
+
+    background:var(--modal-bg);
+
+    color:var(--table-text);
+
+    padding:25px;
+
+    border-radius:12px;
+
+    width:350px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.modal-content input,
+.modal-content select{
+
+    padding:10px;
+
+    background:var(--input-bg);
+
+    color:var(--input-text);
+
+    border:1px solid #555;
+
+}
+
+.add-btn{
+
+    background:#00c853;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-bottom:20px;
+
+}
+
+.add-btn:hover{
+
+    background:#009624;
+
+}
+
+/* ===========================
+   DARK MODE - USERS PAGE
+=========================== */
+
+body.dark .user-table{
+
+    background:#1f1f1f;
+    color:white;
+
+}
+
+body.dark .user-table th{
+
+    background:#121212;
+    color:white;
+
+}
+
+body.dark .user-table td{
+
+    border-bottom:1px solid #444;
+
+}
+
+body.dark .user-table tr:hover{
+
+    background:#2b2b2b;
+
+}
+
+body.dark .table-container h1{
+
+    color:white;
+
+}
+
+/* ===========================
+   MODAL
+=========================== */
+
+body.dark .modal-content{
+
+    background:#1f1f1f;
+    color:white;
+
+}
+
+body.dark .modal-content input,
+
+body.dark .modal-content select{
+
+    background:#2b2b2b;
+    color:white;
+    border:1px solid #555;
+
+}
+
+body.dark .modal-content input::placeholder{
+
+    color:#bbb;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+body.dark .modal-content button{
+
+    background:#444;
+    color:white;
+
+}
+
+body.dark .modal-content button:hover{
+
+    background:#666;
+
+}
+
+body.dark .add-btn{
+
+    background:#00b248;
+
+}
+
+body.dark .add-btn:hover{
+
+    background:#00923c;
+
+}
+
+/* ===== LIGHT MODE ===== */
+
+:root{
+
+    --table-bg:white;
+    --table-text:black;
+    --modal-bg:white;
+    --input-bg:white;
+    --input-text:black;
+
+}
+
+/* ===== DARK MODE ===== */
+
+body.dark{
+
+    --table-bg:#1e1e1e;
+    --table-text:white;
+    --modal-bg:#2b2b2b;
+    --input-bg:#3b3b3b;
+    --input-text:white;
+
+}
+
+body.dark .user-table{
+
+    background:#1f1f1f !important;
+
+    color:white !important;
+
+}
+
+body.dark .user-table th{
+
+    background:#333 !important;
+
+    color:white !important;
+
+}
+
+body.dark .user-table td{
+
+    background:#1f1f1f !important;
+
+    color:white !important;
+
+    border:1px solid #444;
+
+}
+
+body.dark .modal-content{
+
+    background:#1f1f1f !important;
+
+    color:white !important;
+
+}
+
+body.dark .modal-content input,
+body.dark .modal-content select{
+
+    background:#333 !important;
+
+    color:white !important;
+
+    border:1px solid #555;
+
+}
+
+/* Edit Button */
+.edit-btn{
+
+    background:#2563EB;
+    color:white;
+    border:none;
+
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+
+    transform:scale(1);
+    transition:0.25s;
+
+}
+
+.edit-btn:hover{
+
+    background:#1D4ED8;
+    color:white;
+
+    transform:scale(1.05);
+    box-shadow:0 6px 12px rgba(0,0,0,0.15);
+
+}
+/* Delete Button */
+.delete-btn{
+
+    background:#DC2626;
+color:white;
+border:none;
+
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+
+    transform:scale(1);
+    transition:0.25s;
+
+}
+
+.delete-btn:hover{
+
+    background:#B91C1C;
+    color:white;
+
+    transform:scale(1.05);
+    box-shadow:0 6px 12px rgba(0,0,0,0.15);
+
+}
+/* Dark Mode */
+/* ===== Dark Mode Buttons ===== */
+
+body.dark .edit-btn{
+
+    background:#1E293B;
+    color:#38BDF8;
+    border:1px solid #38BDF8;
+
+}
+
+body.dark .edit-btn:hover{
+
+    background:#263548;
+    color:white;
+
+}
+
+body.dark .delete-btn{
+
+    background:#311C1C;
+    color:#F87171;
+    border:1px solid #F87171;
+
+}
+
+body.dark .delete-btn:hover{
+
+    background:#4A2424;
+    color:white;
+
+}
+.details-card{
+
+    width:400px;
+
+    margin:50px auto;
+
+    padding:30px;
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.details-card h1{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.details-card p{
+
+    font-size:18px;
+
+    margin:15px 0;
+
+}
+
+body.dark .details-card{
+
+    background:#1f1f1f;
+
+    color:white;
+
+}
+
+.details-card{
+
+    color:black;
+
+}
+
+.details-card h1{
+
+    color:black;
+
+}
+
+.details-card p{
+
+    color:black;
+
+}
+
+.details-card strong{
+
+    color:black;
+
+}
+
+.details-card span{
+
+    color:black;
+
+}
+
+
+body.dark .details-card{
+
+    background:#1f1f1f;
+
+    color:white;
+
+}
+
+body.dark .details-card h1,
+body.dark .details-card p,
+body.dark .details-card strong,
+body.dark .details-card span{
+
+    color:white;
+
+}
+
+/* User Details Dark Mode */
+
+body.dark .details-card{
+
+    background:#1f1f1f;
+    color:white;
+    border:1px solid #444;
+
+}
+
+body.dark .details-card h1,
+body.dark .details-card p,
+body.dark .details-card strong,
+body.dark .details-card span{
+
+    color:white;
+
+}
+
+body.dark .details-card button{
+
+    background:#333;
+    color:white;
+}
+
+body.dark .details-card button:hover{
+
+    background:#555;
+
+}

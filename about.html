@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>About</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="loader">
+
+    <div class="neon-loader">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <h2>Loading...</h2>
+
+</div>
+
+
+<nav>
+
+<h2>My Website</h2>
+
+<div>
+
+<a href="home.html">Home</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="users.html">Users</a>
+
+<a href="about.html">About</a>
+
+<a href="contact.html">Contact</a>
+
+<button onclick="toggleMode()" id="modeBtn">
+🌙 Dark
+</button>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+</nav>
+
+
+
+<div class="home">
+
+
+<h1>About Us</h1>
+
+
+<div class="box">
+
+<p>
+
+Welcome to my website 🚀
+
+<br><br>
+
+This project is created using HTML, CSS and JavaScript.
+
+<br><br>
+
+It includes login, signup and user authentication.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<script type="module" src="script.js"></script>
+
+<script type="module">
+import { auth } from "./firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+
+    if(!user){
+        window.location.href = "index.html";
+    }
+
+});
+</script>
+
+
+</body>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import { onAuthStateChanged }
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+
+    if(!user){
+
+        window.location.href = "index.html";
+
+    }
+
+});
+
+</script>
+
+</html>

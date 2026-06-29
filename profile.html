@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Profile</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="loader">
+
+    <div class="neon-loader">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <h2>Loading...</h2>
+
+</div>
+
+
+
+<nav>
+
+<h2>My Website</h2>
+
+<div>
+
+    <a href="home.html">Home</a>
+
+    <a href="profile.html">Profile</a>
+
+    <a href="users.html">Users</a>
+
+    <a href="about.html">About</a>
+
+    <a href="contact.html">Contact</a>
+
+    <button onclick="toggleMode()" id="modeBtn">
+        🌙 Dark
+    </button>
+
+    <button onclick="logout()">
+        Logout
+    </button>
+
+</div>
+
+</nav>
+
+
+
+<div class="home">
+
+
+<div class="box">
+
+
+<h1>My Profile 👤</h1>
+
+
+<p>
+Username:
+<span id="pUser"></span>
+</p>
+
+<p>
+<b>Email:</b>
+<span id="user"></span>
+</p>
+
+<p>
+DOB:
+<span id="pDob"></span>
+</p>
+
+
+<p>
+Contact:
+<span id="pContact"></span>
+</p>
+
+
+
+<button onclick="editProfile()">
+
+Edit Profile
+
+</button>
+
+<div id="toast"></div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script type="module" src="script.js"></script>
+
+
+<script>
+
+
+loadProfile();
+
+
+</script>
+
+
+<script type="module">
+import { auth } from "./firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+
+    if(!user){
+        window.location.href = "index.html";
+    }
+
+});
+</script>
+
+<script type="module" src="script.js"></script>
+
+
+</body>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import { onAuthStateChanged }
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+
+    if(!user){
+
+        window.location.href = "index.html";
+
+    }
+
+});
+
+</script>
+
+</html>
